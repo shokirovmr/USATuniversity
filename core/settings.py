@@ -46,7 +46,16 @@ INSTALLED_APPS = [
     "drf_spectacular_sidecar",
     "apps.USAT_uni",
     "modeltranslation",
+    "ckeditor",
 ]
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

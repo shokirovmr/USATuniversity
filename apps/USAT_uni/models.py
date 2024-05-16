@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from apps.shared.models import AbstractBaseModel
+from ckeditor.fields import RichTextField
 
 
 class GalleryModel(AbstractBaseModel):
@@ -11,7 +12,8 @@ class GalleryModel(AbstractBaseModel):
 class NewsModel(AbstractBaseModel):
     title = models.CharField(max_length=255)
     image = models.ImageField(null=True, blank=True, upload_to="news/")
-    description = models.CharField(max_length=255)
+    # description = models.CharField(max_length=255)
+    description = RichTextField()
     slug = models.SlugField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
