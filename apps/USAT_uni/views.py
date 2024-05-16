@@ -8,7 +8,7 @@ from .serializers import GallerySerializer, NewsSerializer
 class GalleryViewSet(viewsets.ModelViewSet):
     queryset = GalleryModel.objects.all()
     serializer_class = GallerySerializer
-    http_method_names = ["get", "post", "put", "patch", "delete"]
+    http_method_names = ["get"]
 
 
 class NewsViewSet(viewsets.ModelViewSet):
@@ -16,4 +16,5 @@ class NewsViewSet(viewsets.ModelViewSet):
     serializer_class = NewsSerializer
     pagination_class = PageNumberPagination
     pagination_class.page_size = 10
-    http_method_names = ["get", "post", "put", "patch", "delete"]
+    http_method_names = ["get"]
+    lookup_field = 'slug'

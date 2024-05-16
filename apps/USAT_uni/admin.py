@@ -23,3 +23,4 @@ class NewsAdmin(TabbedTranslationAdmin):
         "slug",
     )
     search_fields = ("title",)
+    prepopulated_fields = {'slug': ('title', )}
