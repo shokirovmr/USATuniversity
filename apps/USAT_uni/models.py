@@ -8,6 +8,9 @@ class GalleryModel(AbstractBaseModel):
     title = models.CharField(max_length=255)
     image = models.ImageField(null=True, blank=True, upload_to="gallery/")
 
+    def __str__(self):
+        return f"{self.title}: image: {self.image}"
+
 
 class NewsModel(AbstractBaseModel):
     title = models.CharField(max_length=255)
@@ -20,3 +23,6 @@ class NewsModel(AbstractBaseModel):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

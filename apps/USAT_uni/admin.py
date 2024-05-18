@@ -9,7 +9,6 @@ from . import translation
 @admin.register(GalleryModel)
 class GalleryAdmin(TabbedTranslationAdmin):
     list_display = (
-        "title",
         "image",
     )
     search_fields = ("title",)
@@ -19,7 +18,6 @@ class GalleryAdmin(TabbedTranslationAdmin):
 class NewsAdmin(TabbedTranslationAdmin):
     list_display = (
         "title",
-        "description",
-        "slug",
     )
     search_fields = ("title",)
+    prepopulated_fields = {'slug': ('title', )}
