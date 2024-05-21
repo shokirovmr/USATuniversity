@@ -7,6 +7,8 @@ from core import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include("apps.USAT_uni.urls")),
+    path("", include("apps.shared.urls")),
+
 ]
 urlpatterns += swagger_patterns
 if settings.DEBUG:
